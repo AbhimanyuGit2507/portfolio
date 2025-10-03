@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="main">
+    <header>
+      <p class="nav-title">ABHIMANYU.</p>
+      <nav>
+        <a class="nav-item" href="#main">Home.</a>
+        <a class="nav-item" href="#Skills">Skills.</a>
+        <a class="nav-item" href="#Socials">Socials.</a>
+        <a class="nav-item" href="#Projects">Projects.</a>
+        <a class="nav-item" href="#About">About.</a>
+        <a class="nav-item" href="#Contact">Contact.</a>
+      </nav>
+    </header>
+
+    <section id="Home" class="hero">
+      <h1>I am <span id="typewriter"></span></h1>
+      <img src="pfp.png" class="pfp">
+    </section>
+
+    <section id="Skills" class="section">
+      <h2>Skills</h2>
+      <p>I am a passionate developer, and my primary programming language is Python, i have over 4+ yrs or experience in python. I have built end-to-end full-stack scalable applications using django-python.</p>
+      <div class="skills-grid">
+        <div class="skill-card">Python</div>
+        <div class="skill-card">Django</div>
+        <div class="skill-card">FastAPI</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Git</div>
+        <div class="skill-card">AWS</div>
+        <div class="skill-card">Appscript</div>
+      </div>
+    </section>
+
+    <section id="Socials" class="section">
+      <h2>Socials</h2>
+      <p>Links to platforms, where I am active. <br>For freelancing projects/consultancy visit Fiverr.</p>
+      <div class="social-links">
+        
+        <a href="https://www.linkedin.com/in/abhimanyu-negi-56b4a9362/" class="social-icon"><img src="linkedin-icon-2.svg" alt="LinkedIn">LinkedIn</a>
+        <a href="https://github.com/AbhimanyuGit2507" class="social-icon"><img src="github.png" alt="GitHub">Github</a>
+        <a href="https://x.com/im_Abhimanyu_SN" class="social-icon"><img src="twitter.svg" alt="Twitter">Twitter</a>
+        <a href="https://www.fiverr.com/sellers/abhimanyu_negi" class="social-icon"><img src="fiverr-1.svg" alt="Fiverr">Fiverr</a>
+      </div>
+    </section>
+
+    <section id="Projects" class="section">
+  <h2>Projects</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <strong>Border Watch</strong><br>
+      A hackathon project tracking India-Pakistan border conflict updates with live maps, deaths data, and reporting system.
+    </div>
+    <div class="skill-card">
+      <strong>B2B QuoteBot</strong><br>
+      Automation tool with WhatsApp & Email integration, PDF quotes, AWS SES, MongoDB/Postgres backend.
+    </div>
+    <div class="skill-card">
+      <strong>Portfolio Website</strong><br>
+      Personal website built with HTML, CSS, and JS to showcase my skills, projects, and freelancing journey.
+    </div>
+    <div class="skill-card">
+      <strong>Automation Scripts</strong><br>
+      Custom Google Apps Script & Python automation solutions for clients on Fiverr.
+    </div>
+  </div>
+</section>
+
+    <section id="About" class="section">
+      <h2>About</h2>
+      <p>
+            I am Abhimanyu, a freelancer on Fiverr providing web development, design, and automation services.
+    I am currently pursuing my degree in Computer Science, gaining hands-on experience with projects
+    in web development, backend APIs, and front-end interfaces. I am passionate about building scalable
+    web applications using Django, FastAPI, and React, and enjoy experimenting with cloud technologies
+    like AWS and workflow automation tools. I love learning new technologies and applying them to
+    real-world solutions for clients.
+    </section>
+
+    <section id="Contact" class="section">
+      <h2>Contact Me</h2>
+      
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+  </div>
+
+
+
+
+
+
+  <script>
+    const roles = [
+      "Abhimanyu.",
+      "a Freelancer.",
+      "a Student.",
+      "a Web Dev.",
+      "a Full Stack Dev.",
+      "a Django Dev.",
+      "a Designer."
+    ];
+
+    let i = 0;
+    let j = 0;
+    let isDeleting = false;
+    const speed = 120;
+    const eraseSpeed = 80;
+    const delay = 1500;
+
+    function typeWriter() {
+      const typewriter = document.getElementById("typewriter");
+      if (!typewriter) return;
+
+      if (isDeleting) {
+        typewriter.textContent = roles[i].substring(0, j--);
+      } else {
+        typewriter.textContent = roles[i].substring(0, j + 1);
+        j++;
+      }
+
+      if (!isDeleting && j === roles[i].length) {
+        isDeleting = true;
+        setTimeout(typeWriter, delay);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % roles.length;
+        setTimeout(typeWriter, speed);
+      } else {
+        setTimeout(typeWriter, isDeleting ? eraseSpeed : speed);
+      }
+    }
+    typeWriter();
+  </script>
+
+</body>
+</html>
