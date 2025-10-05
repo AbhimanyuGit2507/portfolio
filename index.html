@@ -99,56 +99,63 @@
         <button type="submit">Send</button>
       </form>
     </section>
-
   </div>
+<script>
+  let words = [
+    "Abhimanyu.",
+    "a Freelancer.",
+    "a Student.",
+    "a Web Developer.",
+    "a Full Stack Developer.",
+    "a Django Developer.",
+    "a Designer."
+  ];
 
+  let w = 0;
+  let c = 0;
+  let del = false; 
 
+  let tSpeed = 120;
+  let dSpeed = 80;
+  let pause = 1500;
 
+  function type() {
+    let el = document.getElementById("typewriter");
+    if (el === null) {
+      return;
+    }
 
+    let word = words[w];
 
+    if (del === false) {
+      el.textContent = word.substring(0, c + 1);
+      c = c + 1;
 
-  <script>
-    const roles = [
-      "Abhimanyu.",
-      "a Freelancer.",
-      "a Student.",
-      "a Web Dev.",
-      "a Full Stack Dev.",
-      "a Django Dev.",
-      "a Designer."
-    ];
-
-    let i = 0;
-    let j = 0;
-    let isDeleting = false;
-    const speed = 120;
-    const eraseSpeed = 80;
-    const delay = 1500;
-
-    function typeWriter() {
-      const typewriter = document.getElementById("typewriter");
-      if (!typewriter) return;
-
-      if (isDeleting) {
-        typewriter.textContent = roles[i].substring(0, j--);
-      } else {
-        typewriter.textContent = roles[i].substring(0, j + 1);
-        j++;
+      if (c === word.length) {
+        del = true;
+        setTimeout(type, pause);
+        return;
       }
+    } else {
+      el.textContent = word.substring(0, c - 1);
+      c = c - 1;
 
-      if (!isDeleting && j === roles[i].length) {
-        isDeleting = true;
-        setTimeout(typeWriter, delay);
-      } else if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % roles.length;
-        setTimeout(typeWriter, speed);
-      } else {
-        setTimeout(typeWriter, isDeleting ? eraseSpeed : speed);
+      if (c === 0) {
+        del = false;
+        w = w + 1;
+        if (w === words.length) {
+          w = 0;
+        }
       }
     }
-    typeWriter();
-  </script>
-
+    if (del === true) {
+      setTimeout(type, dSpeed);
+    } else {
+      setTimeout(type, tSpeed);
+    }
+  }
+  type();
+</script>
 </body>
 </html>
+
