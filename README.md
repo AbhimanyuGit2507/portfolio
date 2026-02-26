@@ -2,7 +2,6 @@
 Link: [Portfolio](https://abhimanyugit2507.github.io/portfolio/)
 
 This portfolio is a personal website designed to showcase my work, skills, and background.
-It was built using only **HTML**, **CSS**, and a small amount of **JavaScript** for the typewriter effect on the homepage.
 
 Each part of the site highlights different aspects of my profile:
 
