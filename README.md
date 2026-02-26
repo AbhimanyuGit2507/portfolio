@@ -1,5 +1,5 @@
-# END TERM PORTFOLIO PROJECT
-Link: https://abhimanyugit2507.github.io/term1-webdev-portfolio-abhimanyu10330/
+# PORTFOLIO
+Link: [Portfolio](https://abhimanyugit2507.github.io/portfolio/)
 
 This portfolio is a personal website designed to showcase my work, skills, and background.
 It was built using only **HTML**, **CSS**, and a small amount of **JavaScript** for the typewriter effect on the homepage.
